@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+
+body {
+    font-family: 'Itim', cursive; 
+    background-color: #C5D6BA; 
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border: 3px solid #9BC2B2;
+    box-shadow: 0 0 10px #9BC2B2;
+    background-color: #D1E8E2;
+}
+
+input:hover, textarea:hover, select:hover, button:hover {
+    outline: none;
+    border: 3px solid #90a4ae;
+    box-shadow: 0 0 10px #90a4ae; 
+}

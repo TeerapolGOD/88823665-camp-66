@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Workshop #HTML - FORM</title>
+
+    <link rel="stylesheet" href="mystyle.css">
+
 </head>
+
 <body>
     <h1 style="text-align: center;">Workshop #HTML - FORM</h1>
-    <form style="width: 310px; margin: 0 auto; line-height: 0.8;">
+    <form style="width: 330px; margin: 0 auto; line-height: 0.8;">
 
         <label for="fname">ชื่อ</label>
-        <input type="text" id="fname" name="fname" style="float: right;margin-right: -4px">
+        <input type="text" id="fname" name="fname" style="float: right;margin-right: 30px">
         <br><br>
 
     
         <label for="lname">สกุล</label>
-        <input type="text" id="lname" name="lname" style="float: right;margin-right: -4px">
+        <input type="text" id="lname" name="lname" style="float: right;margin-right: 30px">
         <br><br>
 
         <label for="dob">วัน/เดือน/ปีเกิด</label>
-        <input type="date" id="dob" name="dob" style="float: right;margin-right: 60px">
+        <input type="date" id="dob" name="dob" style="float: right;margin-right: 94px">
         <br><br>
 
   
         <label for="age">อายุ</label>
-        <input type="number" id="age" name="age" style="float: right;margin-right: -4px">
+        <input type="number" id="age" name="age" style="float: right;margin-right: 30px">
         <br><br>
 
     
         <label>เพศ</label>
-        <input type="radio" id="male" name="gender" value="ชาย" style="margin-left: 110px;">
+        <input type="radio" id="male" name="gender" value="ชาย" style="margin-left: 95px;">
         <label for="male">ชาย</label>
         <input type="radio" id="female" name="gender" value="หญิง" style="margin-left: 15px;">
         <label for="female">หญิง</label>
@@ -37,18 +42,19 @@
 
    
         <label for="file">รูป</label>
-        <input type="file" id="file" name="file" style="float: right;margin-right: -79px">
-        <br><br>
+        <input type="file" id="file" name="file" style="float: right;margin-right: -45px">
+        <br><br><br>
 
-  <br>
+
         <label for="address">ที่อยู่</label>
         
-        <textarea id="address" name="address" rows="5" cols="25" style="float: right;margin-right: -25px"></textarea>
+        <textarea id="address" name="address" rows="5" cols="25" style="float: right;margin-right: 11px">
+        </textarea>
         <br><br><br><br><br><br><br><br>
 
     
         <label for="color">สีที่ชอบ</label>
-        <select id="color" name="color" style="float: right;margin-right: 108px">
+        <select id="color" name="color" style="float: right;margin-right: 143px">
             <option value="red">สีแดง</option>
             <option value="blue">สีน้ำเงิน</option>
             <option value="green">สีเขียว</option>
@@ -58,9 +64,11 @@
      
         <label>แนวเพลงที่ชอบ</label>
         
-        <input type="radio" id="life" name="music" value="เพื่อชีวิต">
+        <input type="radio" id="life" name="music" value="เพื่อชีวิต" style= "margin-left: 20px">
+        
         <label for="life">เพื่อชีวิต</label>
        
+    
         <input type="radio" id="rock" name="music" value="ลูกทุ่ง">
         <label for="rock">ลูกทุ่ง</label>
         
