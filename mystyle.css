@@ -5,7 +5,7 @@ body {
     font-family: 'Itim', cursive; 
     background-color: #C5D6BA; 
 }
-
+/*
 input:focus, textarea:focus, select:focus {
     outline: none;
     border: 3px solid #9BC2B2;
