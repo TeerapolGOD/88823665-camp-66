@@ -7,9 +7,9 @@
     method="post">
     @csrf
     <input type="text" name="myinput">
-    <botton type="summit">
-        summit
-    </botton>    
+    <button type="submit">
+        submit
+    </button>    
 </form>
 <?php for ($i=0; $i < 10; $i++) { ?>
     <h1>{{$i}}</h1>
