@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.default');
 });
 
 Route::get('/hello', function () {
@@ -14,3 +14,8 @@ Route::get('/hello', function () {
 Route::get("/mycontroller/{id?}", [MyController::class,'myfunction']);
 
 Route::post("/mycontroller/{id?}", [MyController::class,'myfunction']);
+
+Route::get('/hello/(id?)',
+    function ($val="") {
+        return "<h1>Hello World $val</h1>";
+    });
