@@ -19,15 +19,12 @@ Route::post("/mycontroller/{id?}",
     [MyController::class,'myfunction']);
 
 
-Route::get('/multiplication', 
+Route::get('/', 
     [MultiplicationController::class, 'index']);
     
-Route::post('/multiplication', 
+Route::post('/', 
     [MultiplicationController::class, 'index']);
 
-Route::get('/', function () {
-    return view('layouts.default');
-});
 
 Route::get('/hello/(id?)',
     function ($val="") {

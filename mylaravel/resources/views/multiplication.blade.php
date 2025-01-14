@@ -19,7 +19,8 @@
 
     <!-- ฟอร์มรับค่า multiplier -->
     <div class="d-flex justify-content-center mb-4">
-        <form action="{{ url('/multiplication') }}" method="post" class="w-50 shadow p-4 rounded bg-white">
+    <form action="{{ url('/') }}" method="post" class="w-50 shadow p-4 rounded bg-white">
+
             @csrf
             <div class="form-group mb-3">
                 <label for="multiplier" class="form-label fs-5">Enter a multiplier:</label>
