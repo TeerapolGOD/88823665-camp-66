@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MultiplicationController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 Route::get('/home',
     [HomeController::class, 'index']);
@@ -17,6 +18,9 @@ Route::get('/login',
 
 Route::get('/register',
     [RegisterController::class, 'index']);
+
+Route::post('/register', 
+    [RegisterController::class, 'create']);
 
 Route::get('/hello', function () {
     return "<h1>Hello World!<h1>";
@@ -35,8 +39,10 @@ Route::get('/multiplication',
 Route::post('/', 
     [MultiplicationController::class, 'index']);
 
-
 Route::get('/hello/(id?)',
     function ($val="") {
         return "<h1>Hello World $val</h1>";
     });
+
+Route::get('/user',
+    [UserController::class, 'index']);
