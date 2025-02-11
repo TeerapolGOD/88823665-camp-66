@@ -72,6 +72,7 @@ function checkName() {
     } else {
         $('#name').removeClass('is-valid').addClass('is-invalid'); 
         return false;
+        <div class="invalid-feedback">กรุณากรอกข้อมูล ชื่อ-สกุล</div>
     }
 }
 
@@ -88,9 +89,9 @@ function checkEmail() {
 }
 
 function checkPassword() {
-    let passwordcorrect = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9+-_%.]{8,}$/;
+    let passwordcorrect = /^(?=.\d)(?=.*[a-z])(?[A-Z]).+$/;
     let password = $('#pass').val(); 
-    console.log("Password Checked:", password); // เช็คค่าที่ส่งเข้า
+   
 
     if (passwordcorrect.test(password)) {
         $('#pass').removeClass('is-invalid').addClass('is-valid'); 
@@ -124,7 +125,6 @@ function allcheck(event) {
         });
         return false;
     }
-    
     swal.fire({
         title: "Success",
         text: "สมัครสมาชิกสำเร็จ!",
