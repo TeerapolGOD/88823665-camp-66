@@ -700,7 +700,7 @@
                           <td>{{$user ->email}}</td>
                           <td class="text-end">
                             <a href="{{url('/user/'.$user -> id)}}"> <button class="btn btn-warning"> edit </button></a>
-                            <form action="{{url('/user')}}" onsubmit = "return clickme(event)" method="post" style="display:inline"> 
+                            <form action="{{url('/user')}}" onsubmit = "return clickme(event)" method="post" style="display:inline">
                                 @csrf
                                 @method('delete')
                                 <input type="hidden" name="id" value="{{$user -> id}}">
@@ -743,14 +743,14 @@
     @section('scripts')
 
     <script>
-     
-          
+
+
      function clickme(event) {
-      event.preventDefault(); 
-  
+      event.preventDefault();
+
       Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: "Are you sure you want to delete this?",
+        text: "Deleted data cannot be recovered!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -758,14 +758,14 @@
         confirmButtonText: "Yes, delete it!"
       }).then((result) => {
         if (result.isConfirmed) {
-          event.target.submit(); 
+          event.target.submit();
         }
       });
-  
-      return false; 
+
+      return false;
     }
-  
-          
+
+
         </script>
         @endsection
     <script

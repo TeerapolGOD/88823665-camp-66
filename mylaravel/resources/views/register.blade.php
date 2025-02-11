@@ -22,13 +22,13 @@
             <input type="email" name="email" id="email" class="form-control" placeholder="Email" oninput="checkEmail()"/>
             <div class="input-group-text"><span class="bi bi-envelope"></span></div>
             <div class="valid-feedback">ถูกต้อง</div>
-            <div class="invalid-feedback">กรุณากรอกข้อมูล ชื่อ-สกุล</div>
+            <div class="invalid-feedback">email ต้องมี @ และ .</div>
           </div>
           <div class="input-group mb-3">
             <input type="password" name="password" id="pass" class="form-control" placeholder="Password" oninput="checkPassword()"/>
             <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
             <div class="valid-feedback">ถูกต้อง</div>
-            <div class="invalid-feedback">กรุณากรอกข้อมูล ชื่อ-สกุล</div>
+            <div class="invalid-feedback">ต้องมี ตัวเลข ตัวอักษรภาษาอังกฤษพิมพ์เล็ก ตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ </div>
           </div>
           <!--begin::Row-->
           <div class="row">
@@ -50,7 +50,7 @@
           </div>
           <!--end::Row-->
         </form>
-       
+
         <!-- /.social-auth-links -->
         <p class="mb-0">
           <a href="login.html" class="text-center"> I already have a membership </a>
@@ -63,77 +63,56 @@
   @endsection
 
   @section('scripts')
-  <script>
-function checkName() {  
-    let name = $('#name').val().trim(); 
-    if (name !== "" && name.length >= 3) {
-        $('#name').removeClass('is-invalid').addClass('is-valid'); 
+<script>
+
+function checkName() {
+    let name = $('#name').val().trim();
+    if (name !== "" && name.length>=3) {
+        $('#name').removeClass('is-invalid').addClass('is-valid');
         return true;
     } else {
-        $('#name').removeClass('is-valid').addClass('is-invalid'); 
+        $('#name').removeClass('is-valid').addClass('is-invalid');
         return false;
-        <div class="invalid-feedback">กรุณากรอกข้อมูล ชื่อ-สกุล</div>
     }
-}
-
-function checkEmail() {
-    let email = $('#email').val(); 
+  }
+    function checkEmail() {
+    let email = $('#email').val();
     let emailcorrect = /^[a-zA-Z0-9+-_%.]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]{2,}$/;
     if (emailcorrect.test(email)) {
-        $('#email').removeClass('is-invalid').addClass('is-valid'); 
-        return true;
+          $('#email').removeClass('is-invalid').addClass('is-valid');
+          return true;
     } else {
-        $('#email').removeClass('is-valid').addClass('is-invalid'); 
+        $('#email').removeClass('is-valid').addClass('is-invalid');
         return false;
     }
-}
-
-function checkPassword() {
-    let passwordcorrect = /^(?=.\d)(?=.*[a-z])(?[A-Z]).+$/;
-    let password = $('#pass').val(); 
-   
-
+  }
+    function checkPassword() {
+    let passwordcorrect = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])[a-zA-Z0-9+-_%.]{8,}$/;
+    let password = $('#pass').val();
     if (passwordcorrect.test(password)) {
-        $('#pass').removeClass('is-invalid').addClass('is-valid'); 
+        $('#pass').removeClass('is-invalid').addClass('is-valid');
         return true;
     } else {
-        $('#pass').removeClass('is-valid').addClass('is-invalid'); 
+        $('#pass').removeClass('is-valid').addClass('is-invalid');
         return false;
     }
-}
-
-function checkCheckbox() {
-    let checkbox = $('#flexCheckDefault').is(':checked');
-    if (checkbox) {
-        $('#flexCheckDefault').removeClass('is-invalid').addClass('is-valid');
-        return true;
-    } else {
-        $('#flexCheckDefault').removeClass('is-valid').addClass('is-invalid');
-        return false;
+  }
+    function allcheck(event){
+      event.preventDefault();
+      let checkbox = document.getElementById("flexCheckDefault").checked;
+     let confirm =  checkName() &&checkEmail() &&checkPassword() && checkbox ;
+     let nametitle = confirm ? "Success" : "Error",
+         nametext = !checkName()?"please input name ":!checkEmail()?"please input email ":!checkPassword()?"please input password ":confirm ? "thank you for register" : "Please accept the terms and conditions before proceeding",
+         typeicon = confirm ? "success" : "error";
+      swal.fire({
+        title:nametitle,
+        text : nametext,
+        icon:typeicon
+      })
+     if(confirm){
+      event.target.submit();
+     }
     }
-}
-
-function allcheck(event) {
-    event.preventDefault();
-    let isValid = checkName() & checkEmail() & checkPassword() & checkCheckbox();
-    
-    if (!isValid) {
-        swal.fire({
-            title: "Error",
-            text: "กรุณากรอกข้อมูลให้ครบถ้วน",
-            icon: "error"
-        });
-        return false;
-    }
-    swal.fire({
-        title: "Success",
-        text: "สมัครสมาชิกสำเร็จ!",
-        icon: "success"
-    }).then(() => {
-        event.target.submit();
-    });
-}
 
 </script>
-
 @endsection
