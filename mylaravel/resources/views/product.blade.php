@@ -684,29 +684,24 @@
                   <div class="card-body">
 
 
-                    <form action="{{ url('/product') }}" method="post">
-                        @csrf
-                        <div class="row mt-3">
-                            <div class="col-6">
-                                <label>Category Name</label>
-                                <input name="category_name" type="text" class="form-control" required />
-                            </div>
-                        </div>
-
-                        <button class="btn btn-primary mt-3" id="btn-add-product-list" type="button"> + เพิ่ม product</button>
-
-                        <div class="row mt-3" id="product-list">
-                            <div class="col-6">
-                                <label>Product Name
-                                    <button type="button" class="btn btn-danger m1-3 mt-2 mb-2 btn-del-product-list">ลบ</button>
-                                </label>
-                                <input name="product_name[]" type="text" class="form-control" required />
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-success mt-3 mb-3">บันทึก</button>
-                    </form>
-
+<form action="{{ url('/product') }}" method="post">
+    @csrf
+    <div class="row mt-3">
+        <div class="col-6">
+            <label>Category Name</label>
+            <input name="category_name" type="text" class="form-control" />
+        </div>
+    </div>
+    <button class="btn btn-primary mt-3" id="btn-add-product-list" type="button"> + เพิ่ม product</button>
+    <div class="row mt-3" id="product-list">
+        <div class="col-6">
+            <label>Product Name <button type="button"
+                                    class="btn btn-danger m1-3 mt-2 mb-2 btn-del-product-list">ลบ</button></label>
+            <input name="product_name[]" type="text" class="form-control" />
+        </div>
+    </div>
+    <button type="summit" class="btn btn-success mt-3 mb-3">บันทึก</button>
+</form>
 <table class="table">
     <thead>
         <tr>
