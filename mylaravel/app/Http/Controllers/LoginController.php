@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
@@ -12,19 +13,18 @@ class LoginController extends Controller
         return view('login');
     }
     function login(Request $req){
-     
-        //print_r($reqp->email);
-        //print_r($req->password);
-       
-        $user = User::where('email' , $req->email)->first();
-        if(Hash::check($req->password, $user->password)){
-            return redirect('/');
-            session()->forget('error');
-            session(['user' => $user]);
-        }else{
-            sessicon(['error' => 'ข้อมูลการเข้าสู่ระบบไม่ถูกต้อง']);
-            return view('login', [ 'email' => $req->email]);
+
+        //print_r($req->input());
+
+        $user = User::where('email', $req->email)->first();
+        // print_r($user);
+        if ($user != null && Hash::check($req->password, $user->password)) {
+            $req->session()->put('user', $user);
+            return redirect('/user');
+        } else {
+            $req->session()->flash('error', 'กรุณาตรวจสอบข้อมูลอีกครั้ง');
             return redirect('/login');
         }
+
     }
 }
